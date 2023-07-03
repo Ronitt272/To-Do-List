@@ -1,0 +1,121 @@
+*{
+    padding : 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: capitalize;
+    list-style: none;
+}
+
+/* Applying styles on body to center the to-do list on the center of the webpage */
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #ce003d, #2e4bc6);
+    background-size: 400% 400%;
+    /* FadeAnimation is identifier that I defined for the animation */
+    animation: FadeAnimation 7s ease infinite
+    
+}
+
+.intro{
+    color: whitesmoke;
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* generating animations for the background */
+/* The @keyframes rule specifies the animation code */
+@keyframes FadeAnimation {
+    0%{
+        background-position: 47% 0%;
+    }
+
+    50%{
+        background-position: 54% 100%;
+    }
+
+    /* the value at 100% is the same as that at 0% to basically complete a loop of the animation frames */
+    100%{
+        background-position: 47% 0%;
+    }
+}
+
+
+
+/* Applying styles on the container to adjust the aesthetics of the to-do list */
+
+.container{
+    height: 460px;
+    width: 340px;
+    background: white;
+    border-radius: 5px;
+    /* generates a shadow  */
+    box-shadow: 0 5px 10px rgba(0.3,0,0,0.5);  
+    padding: 10px;
+    /* setting overflow-y to auto helps generate a scrolling mechanism, just incase, the content in the container overflows in the y-axis direction*/
+    /* However, due to auto, scrolling bar is only generated upon overflow */
+    overflow-y: auto; 
+}
+
+/* Applying styles on the input box */
+#input{
+    height: 50px;
+    /* width is set to 100%, but this takes into account the padding set above in the container, as the input box is present inside the container */
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    /* color is used to set the color of the texts present in the input box */
+    color: #fff;
+    padding: 0 12px;
+}
+
+/* Applying styles to the placeholder of the input box */
+#input::placeholder{
+    color: lightgray;
+}
+
+/* Applying styles to the list items */
+ul li{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: lightgray;
+    margin: 10px 0;
+    padding : 10px;
+    position: relative;
+}
+
+/* Applying styles to the checks and xmarks */
+ul .fa-check, .fa-xmark{
+    /* setting cursor to pointer allows the user to view a pointer to the checks or xmarks upon hovering the cursor over it */
+    cursor: pointer;
+    position: absolute;
+}
+
+ul .fa-check{
+    right: 40px;
+    color: green;
+}
+
+ul .fa-xmark{
+    right: 15px;
+    color: crimson;
+}
+
+/* zthe completed class comes into the picture once a task has been completed, and the user clicks the check corresponding to the task */
+ul .completed{
+    /* background of the list item is changed to green, and the text present in the list item is striked, to indicate completion of task */
+    background: aquamarine;
+    text-decoration: line-through;
+    /* transition allows to set the transition time */
+    transition: 0.15s;
+}
